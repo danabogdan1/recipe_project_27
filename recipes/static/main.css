@@ -1,0 +1,127 @@
+body {
+    font-family: sans-serif;
+    background-color: #fff;
+}
+
+html {
+}
+
+li {
+}
+
+.cancel-delete:visited {
+  color: var(--accent-text);
+}
+
+.cancel-delete {
+  border: var(--border-width) solid var(--accent);
+  background-color: var(--accent);
+  color: var(--accent-text);
+  padding: 0.5em;
+  text-decoration: none;
+  line-height: normal;
+  display: inline-block;
+  max-width: 100%;
+  border-radius: var(--standard-border-radius);
+  width: 65px;
+}
+
+nav {
+  padding-top: 30px;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.recipes-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px 0px;
+    justify-content: flex-start;
+}
+
+h4 {
+    text-align: center;
+}
+
+.recipe-card {
+    width: 260px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #eaeaea;
+    border-radius: var(--standard-border-radius);
+    background-color: #fff;
+    transition: transform 0.2s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-3px);
+}
+
+.recipe-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 15px 0px 15px;
+}
+
+.card-content h2 {
+    margin: 5px 0 10px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+.card-content h2 a {
+    font-size: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    display: block;
+}
+
+.card-content p {
+    margin: 5px 0px;
+    color: #666;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.bottom-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 15px;
+    font-size: 0.85em;
+    color: #888;
+    border-top: 1px solid #f9f9f9;
+}
+
+.bottom-info * {
+    text-decoration: none;
+}
+
+.delete-choice {
+    width: 100px;
+}
+
+.choices {
+    display: flex;
+    gap: 10px;
+}
+

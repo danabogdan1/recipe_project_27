@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock%}</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+
+  <nav class="main-nav">
+    <div>
+      <a href="{% url 'list_recipes' %}">Home</a>
+      <a href="{% url 'list_recipes_alphabetical' %}">Alphabetical</a>
+      <a href="{% url 'list_recipes_by_date' %}">By Date</a>
+      {% if user.is_authenticated %}
+        <a href="/recipe/add/">Add recipe</a>
+      {% endif %}
+    </div>
+
+    <div>
+      {% if user.is_authenticated %}
+        <span>Welcome, {{ user.username }}</span>
+        <form method="post" action="{% url 'logout' %}" style="display: inline;">
+          {% csrf_token %}
+          <button type="submit" style="padding: 2px 8px; margin: 0;">Logout</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register_user' %}">Register</a>
+      {% endif %}
+    </div>
+  </nav>
+
+{% block content%}{% endblock %}
+
+</body>
+</html>

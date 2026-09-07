@@ -1,0 +1,33 @@
+{% extends "recipes/base.html" %}
+
+{% block title %}Recipes{% endblock %}
+
+{% block content %}
+
+
+  <div class="recipes-list">
+    {% for recipe in recipes %}
+      <div class="recipe-card">
+        <a href="{% url 'recipe_detail' recipe.id %}" class="recipe-card-link">
+          <div class="card-content">
+            <h2>{{ recipe.title }}</h2>
+            <p>{{ recipe.description|truncatewords:30 }}</p>
+          </div>
+
+          <div class="bottom-info">
+            <span>Cooking time {{ recipe.cooking_time }}</span>
+            <span>{{ recipe.created_at|date:"d-m-Y" }}</span>
+          </div>
+        </a>
+
+        {% if user.is_authenticated and user.pk == recipe.user.pk %}
+          <div class="bottom-info">
+            <a href="{% url 'recipe_edit' recipe.pk %}">Edit</a>
+            <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}
