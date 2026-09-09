@@ -7,7 +7,7 @@ from django.contrib.auth import get_user_model
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ["title", "description", "cooking_time"]
+        fields = ["title", "description", "cooking_time", "cover_image"]
 
 
 User = get_user_model()

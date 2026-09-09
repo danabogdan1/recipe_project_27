@@ -9,6 +9,12 @@
     {% for recipe in recipes %}
       <div class="recipe-card">
         <a href="{% url 'recipe_detail' recipe.id %}" class="recipe-card-link">
+          {% if recipe.cover_image %}
+            <img class="cover-image" src="{{ recipe.cover_image.url }}" alt="{{ recipe.title }}">
+          {% else %}
+            <img class="cover-image" src="/media/images/default.jpg" alt="{{ recipe.title }}">
+          {% endif %}
+
           <div class="card-content">
             <h2>{{ recipe.title }}</h2>
             <p>{{ recipe.description|truncatewords:30 }}</p>
@@ -22,8 +28,8 @@
 
         {% if user.is_authenticated and user.pk == recipe.user.pk %}
           <div class="bottom-info">
-            <a href="{% url 'recipe_edit' recipe.pk %}">Edit</a>
-            <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a>
+            <a href="{% url 'recipe_edit' recipe.pk %}">✏️️</a>
+            <a href="{% url 'recipe_delete' recipe.pk %}">🗑️</a>
           </div>
         {% endif %}
       </div>

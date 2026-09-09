@@ -11,8 +11,8 @@
     <p>Created by {{ recipe.user.username }}</p>
 
     {% if user.is_authenticated and user.pk == recipe.user.pk %}
-          <a href="{% url 'recipe_edit' recipe.pk %}">Edit</a>
-          <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a>
+          <a href="{% url 'recipe_edit' recipe.pk %}">✏️️</a>
+          <a href="{% url 'recipe_delete' recipe.pk %}">🗑️</a>
     {% endif %}
 
 {% endblock %}
