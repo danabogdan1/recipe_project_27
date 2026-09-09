@@ -28,8 +28,8 @@
 
         {% if user.is_authenticated and user.pk == recipe.user.pk %}
           <div class="bottom-info">
-            <a href="{% url 'recipe_edit' recipe.pk %}">✏️️</a>
-            <a href="{% url 'recipe_delete' recipe.pk %}">🗑️</a>
+            <a href="{% url 'recipe_edit' recipe.pk %}">Edit️️</a>
+            <a href="{% url 'recipe_delete' recipe.pk %}">Delete️</a>
           </div>
         {% endif %}
       </div>
