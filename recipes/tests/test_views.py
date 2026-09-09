@@ -71,8 +71,10 @@ def test_recipe_owner_sees_edit_delete_buttons(recipe, logged_in_client: Client)
     response = logged_in_client.get(f"/recipe/{recipe.pk}/")
 
     assert response.status_code == 200
-    assert "Edit" in str(response.content)
-    assert "Delete" in str(response.content)
+    content = response.content.decode("utf-8")
+    assert "Edit" in content
+    assert "Delete" in content
+
 
 # Testul verifica daca retetele sunt afisate in ordine alfabetica.
 def test_recipes_alphabetical(user, logged_in_client: Client):
